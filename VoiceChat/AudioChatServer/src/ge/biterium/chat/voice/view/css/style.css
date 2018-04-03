@@ -1,0 +1,30 @@
+.btnStartServer {
+    -fx-font-weight: bold;
+    -fx-background-color: #2196f3;
+    -fx-background-radius: 22;
+    -fx-font-size: 16;
+    -fx-text-fill: white;
+}
+
+.btnStartServer:hover {
+    -fx-font-weight: bold;
+    -fx-background-color: white;
+    -fx-background-radius: 22;
+    -fx-font-size: 16;
+    -fx-text-fill: #2196f3;
+    -fx-border-radius: 20;
+    -fx-border-width: 3;
+}
+
+.btnStartServer:pressed {
+    -fx-font-weight: bold;
+    -fx-background-color: white;
+    -fx-background-radius: 22;
+    -fx-font-size: 16;
+    -fx-text-fill: #2196f3;
+    -fx-border-radius: 20;
+    -fx-border-width: 3;
+
+    -fx-rotate: 10;
+
+}

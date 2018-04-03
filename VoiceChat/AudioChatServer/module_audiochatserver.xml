@@ -1,0 +1,83 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project name="module_audiochatserver" default="compile.module.audiochatserver">
+  <dirname property="module.audiochatserver.basedir" file="${ant.file.module_audiochatserver}"/>
+  
+  <property name="module.jdk.home.audiochatserver" value="${project.jdk.home}"/>
+  <property name="module.jdk.bin.audiochatserver" value="${project.jdk.bin}"/>
+  <property name="module.jdk.classpath.audiochatserver" value="${project.jdk.classpath}"/>
+  
+  <property name="compiler.args.audiochatserver" value="-encoding UTF-8 -source 1.8 -target 1.8 ${compiler.args}"/>
+  
+  <property name="audiochatserver.output.dir" value="${module.audiochatserver.basedir}/out/production/AudioChatServer"/>
+  <property name="audiochatserver.testoutput.dir" value="${module.audiochatserver.basedir}/out/test/AudioChatServer"/>
+  
+  <path id="audiochatserver.module.bootclasspath">
+    <!-- Paths to be included in compilation bootclasspath -->
+  </path>
+  
+  <path id="audiochatserver.module.production.classpath">
+    <path refid="${module.jdk.classpath.audiochatserver}"/>
+  </path>
+  
+  <path id="audiochatserver.runtime.production.module.classpath">
+    <pathelement location="${audiochatserver.output.dir}"/>
+  </path>
+  
+  <path id="audiochatserver.module.classpath">
+    <path refid="${module.jdk.classpath.audiochatserver}"/>
+    <pathelement location="${audiochatserver.output.dir}"/>
+  </path>
+  
+  <path id="audiochatserver.runtime.module.classpath">
+    <pathelement location="${audiochatserver.testoutput.dir}"/>
+    <pathelement location="${audiochatserver.output.dir}"/>
+  </path>
+  
+  
+  <patternset id="excluded.from.module.audiochatserver">
+    <patternset refid="ignored.files"/>
+  </patternset>
+  
+  <patternset id="excluded.from.compilation.audiochatserver">
+    <patternset refid="excluded.from.module.audiochatserver"/>
+  </patternset>
+  
+  <path id="audiochatserver.module.sourcepath">
+    <dirset dir="${module.audiochatserver.basedir}">
+      <include name="src"/>
+      <include name="resources"/>
+    </dirset>
+  </path>
+  
+  
+  <target name="compile.module.audiochatserver" depends="compile.module.audiochatserver.production,compile.module.audiochatserver.tests" description="Compile module AudioChatServer"/>
+  
+  <target name="compile.module.audiochatserver.production" depends="register.custom.compilers" description="Compile module AudioChatServer; production classes">
+    <mkdir dir="${audiochatserver.output.dir}"/>
+    <javac2 destdir="${audiochatserver.output.dir}" debug="${compiler.debug}" nowarn="${compiler.generate.no.warnings}" memorymaximumsize="${compiler.max.memory}" fork="true" executable="${module.jdk.bin.audiochatserver}/javac">
+      <compilerarg line="${compiler.args.audiochatserver}"/>
+      <bootclasspath refid="audiochatserver.module.bootclasspath"/>
+      <classpath refid="audiochatserver.module.production.classpath"/>
+      <src refid="audiochatserver.module.sourcepath"/>
+      <patternset refid="excluded.from.compilation.audiochatserver"/>
+    </javac2>
+    
+    <copy todir="${audiochatserver.output.dir}">
+      <fileset dir="${module.audiochatserver.basedir}/src">
+        <patternset refid="compiler.resources"/>
+        <type type="file"/>
+      </fileset>
+      <fileset dir="${module.audiochatserver.basedir}/resources">
+        <patternset refid="compiler.resources"/>
+        <type type="file"/>
+      </fileset>
+    </copy>
+  </target>
+  
+  <target name="compile.module.audiochatserver.tests" depends="register.custom.compilers,compile.module.audiochatserver.production" description="compile module AudioChatServer; test classes" unless="skip.tests"/>
+  
+  <target name="clean.module.audiochatserver" description="cleanup module">
+    <delete dir="${audiochatserver.output.dir}"/>
+    <delete dir="${audiochatserver.testoutput.dir}"/>
+  </target>
+</project>

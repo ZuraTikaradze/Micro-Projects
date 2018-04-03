@@ -1,0 +1,61 @@
+.btnCall {
+    -fx-font-weight: bold;
+    -fx-background-color: #2196f3;
+    -fx-background-radius: 22;
+    -fx-font-size: 16;
+    -fx-text-fill: white;
+}
+
+.btnCall:hover {
+    -fx-font-weight: bold;
+    -fx-background-color: white;
+    -fx-background-radius: 22;
+    -fx-font-size: 16;
+    -fx-text-fill: #2196f3;
+    -fx-border-radius: 20;
+    -fx-border-width: 3;
+}
+
+.btnCall:pressed {
+    -fx-font-weight: bold;
+    -fx-background-color: white;
+    -fx-background-radius: 22;
+    -fx-font-size: 16;
+    -fx-text-fill: #2196f3;
+    -fx-border-radius: 20;
+    -fx-border-width: 3;
+
+    -fx-rotate: 10;
+
+}
+
+.btnEndCall {
+    -fx-font-weight: bold;
+    -fx-background-color: #e53935;
+    -fx-background-radius: 22;
+    -fx-font-size: 16;
+    -fx-text-fill: white;
+}
+
+.btnEndCall:hover {
+    -fx-font-weight: bold;
+    -fx-background-color: white;
+    -fx-background-radius: 22;
+    -fx-font-size: 16;
+    -fx-text-fill: #e53935;
+    -fx-border-radius: 20;
+    -fx-border-width: 3;
+}
+
+.btnEndCall:pressed {
+    -fx-font-weight: bold;
+    -fx-background-color: white;
+    -fx-background-radius: 22;
+    -fx-font-size: 16;
+    -fx-text-fill: #e53935;
+    -fx-border-radius: 20;
+    -fx-border-width: 3;
+
+    -fx-rotate: 10;
+
+}
